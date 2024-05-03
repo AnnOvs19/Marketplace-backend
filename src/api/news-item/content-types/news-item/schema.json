@@ -4,7 +4,8 @@
   "info": {
     "singularName": "news-item",
     "pluralName": "news-items",
-    "displayName": "NewsItem"
+    "displayName": "NewsItem",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,19 +19,20 @@
       "type": "text"
     },
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
-    "users_permissions_user": {
+    "store": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
+      "target": "api::store.store",
       "inversedBy": "news_items"
     }
   }

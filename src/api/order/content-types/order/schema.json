@@ -12,31 +12,31 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "client": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "orders"
-    },
-    "seller": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "orders"
-    },
     "order_status": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::order-status.order-status",
       "inversedBy": "orders"
     },
-    "sumOrder": {
-      "type": "string"
-    },
     "products": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::product.product",
+      "inversedBy": "orders"
+    },
+    "sumOrder": {
+      "type": "float"
+    },
+    "store": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::store.store",
+      "inversedBy": "orders"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
       "inversedBy": "orders"
     }
   }

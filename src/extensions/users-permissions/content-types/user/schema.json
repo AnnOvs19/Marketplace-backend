@@ -9,8 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "draftAndPublish": false,
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -66,29 +65,26 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "reviews": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::review.review",
-      "mappedBy": "users_permissions_user"
+    "phone": {
+      "type": "string"
     },
-    "news_items": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::news-item.news-item",
-      "mappedBy": "users_permissions_user"
+    "sity": {
+      "type": "string"
     },
-    "likes": {
+    "adress": {
+      "type": "text"
+    },
+    "store": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::like.like",
-      "mappedBy": "users_permissions_user"
+      "relation": "oneToOne",
+      "target": "api::store.store",
+      "inversedBy": "user"
     },
     "orders": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::order.order",
-      "mappedBy": "seller"
+      "mappedBy": "user"
     }
   }
 }
