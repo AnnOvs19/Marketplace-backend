@@ -793,6 +793,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::review.review'
     >;
+    basket: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::basket.basket'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -803,6 +808,45 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBasketBasket extends Schema.CollectionType {
+  collectionName: 'baskets';
+  info: {
+    singularName: 'basket';
+    pluralName: 'baskets';
+    displayName: 'Basket';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    client: Attribute.Relation<
+      'api::basket.basket',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    products: Attribute.Relation<
+      'api::basket.basket',
+      'manyToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::basket.basket',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::basket.basket',
       'oneToOne',
       'admin::user'
     > &
@@ -1052,6 +1096,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToMany',
       'api::review.review'
     >;
+    baskets: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::basket.basket'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1180,6 +1229,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::basket.basket': ApiBasketBasket;
       'api::category.category': ApiCategoryCategory;
       'api::like.like': ApiLikeLike;
       'api::news-item.news-item': ApiNewsItemNewsItem;

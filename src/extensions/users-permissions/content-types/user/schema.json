@@ -97,6 +97,12 @@
       "relation": "oneToMany",
       "target": "api::review.review",
       "mappedBy": "client"
+    },
+    "basket": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::basket.basket",
+      "mappedBy": "client"
     }
   }
 }

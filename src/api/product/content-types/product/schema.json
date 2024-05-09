@@ -91,6 +91,12 @@
       "relation": "oneToMany",
       "target": "api::review.review",
       "mappedBy": "product"
+    },
+    "baskets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::basket.basket",
+      "mappedBy": "products"
     }
   }
 }
