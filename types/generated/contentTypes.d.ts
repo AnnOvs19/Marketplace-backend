@@ -821,6 +821,7 @@ export interface ApiBasketBasket extends Schema.CollectionType {
     singularName: 'basket';
     pluralName: 'baskets';
     displayName: 'Basket';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -836,6 +837,10 @@ export interface ApiBasketBasket extends Schema.CollectionType {
       'manyToMany',
       'api::product.product'
     >;
+    phone: Attribute.String;
+    sity: Attribute.String;
+    adress: Attribute.Text;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
