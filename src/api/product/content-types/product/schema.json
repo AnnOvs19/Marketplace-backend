@@ -97,6 +97,9 @@
       "relation": "manyToMany",
       "target": "api::basket.basket",
       "mappedBy": "products"
+    },
+    "deliveryPrice": {
+      "type": "float"
     }
   }
 }

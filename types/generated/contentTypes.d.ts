@@ -1106,6 +1106,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::basket.basket'
     >;
+    deliveryPrice: Attribute.Float;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
