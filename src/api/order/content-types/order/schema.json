@@ -12,15 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "order_status": {
+    "orderStatus": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::order-status.order-status",
       "inversedBy": "orders"
     },
-    "products": {
+    "product": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::product.product",
       "inversedBy": "orders"
     },

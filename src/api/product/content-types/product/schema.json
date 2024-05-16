@@ -59,12 +59,6 @@
     "weight": {
       "type": "float"
     },
-    "orders": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::order.order",
-      "mappedBy": "products"
-    },
     "quantity": {
       "type": "integer"
     },
@@ -100,6 +94,12 @@
     },
     "deliveryPrice": {
       "type": "float"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "product"
     }
   }
 }

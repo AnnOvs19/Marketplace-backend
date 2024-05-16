@@ -976,14 +976,14 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    order_status: Attribute.Relation<
+    orderStatus: Attribute.Relation<
       'api::order.order',
       'manyToOne',
       'api::order-status.order-status'
     >;
-    products: Attribute.Relation<
+    product: Attribute.Relation<
       'api::order.order',
-      'manyToMany',
+      'manyToOne',
       'api::product.product'
     >;
     sumOrder: Attribute.Float;
@@ -1081,11 +1081,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     country: Attribute.String;
     brand: Attribute.String;
     weight: Attribute.Float;
-    orders: Attribute.Relation<
-      'api::product.product',
-      'manyToMany',
-      'api::order.order'
-    >;
     quantity: Attribute.Integer;
     price: Attribute.Integer;
     store: Attribute.Relation<
@@ -1107,6 +1102,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::basket.basket'
     >;
     deliveryPrice: Attribute.Float;
+    orders: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::order.order'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
