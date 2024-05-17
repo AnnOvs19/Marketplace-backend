@@ -59,9 +59,6 @@
     "weight": {
       "type": "float"
     },
-    "quantity": {
-      "type": "integer"
-    },
     "price": {
       "type": "integer"
     },

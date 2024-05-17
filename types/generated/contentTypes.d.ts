@@ -997,6 +997,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    quantity: Attribute.Float;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1081,7 +1082,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     country: Attribute.String;
     brand: Attribute.String;
     weight: Attribute.Float;
-    quantity: Attribute.Integer;
     price: Attribute.Integer;
     store: Attribute.Relation<
       'api::product.product',
