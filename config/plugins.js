@@ -14,4 +14,11 @@ module.exports = ({ env }) => ({
       defaultDepth: 5, // Default is 5
     },
   },
+  "users-permissions": {
+    config: {
+      register: {
+        allowedFields: ["phone", "sity", "adress"],
+      },
+    },
+  },
 });
